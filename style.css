@@ -1,0 +1,427 @@
+:root {
+    --bg-page: #f8fafc;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --border-focus: #0f172a;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --primary: #0f172a;
+    --radius-md: 8px;
+    --radius-sm: 6px;
+    --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Header */
+.header {
+    padding: 36px 0 24px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #ffffff;
+    margin-bottom: 24px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    font-size: 2rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
+/* Simple Clean Cards (No Transparency, Solid White) */
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-subtle);
+}
+
+.card-desc {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-bottom: 16px;
+}
+
+.step-badge {
+    display: inline-block;
+    background: #f1f5f9;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-main);
+}
+
+/* Disabled Cards */
+.disabled-section {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+/* Form Controls */
+.form-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 14px;
+}
+
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+}
+
+label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"], select {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: var(--text-main);
+    padding: 10px 14px;
+    font-size: 0.92rem;
+    font-family: inherit;
+    border-radius: var(--radius-sm);
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+input[type="text"]:focus, select:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.1);
+}
+
+select:disabled, input:disabled {
+    background-color: #f1f5f9;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.icon-btn {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.icon-btn:hover {
+    color: var(--text-main);
+}
+
+/* Autocomplete Dropdown (Solid White) */
+.autocomplete-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--radius-sm);
+    max-height: 240px;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.autocomplete-item:hover, .autocomplete-item.active {
+    background-color: #f8fafc;
+}
+
+.autocomplete-item strong {
+    color: var(--text-main);
+    font-size: 0.88rem;
+}
+
+.autocomplete-item span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background-color: #f1f5f9;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.autocomplete-empty {
+    padding: 12px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* Address Info Badge */
+.address-badge {
+    margin-top: 16px;
+    background-color: #f8fafc;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.badge-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.badge-icon {
+    font-size: 1.1rem;
+}
+
+.badge-sub {
+    display: block;
+    font-size: 0.76rem;
+    color: var(--text-muted);
+}
+
+/* Configuration Grid */
+.config-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+    .config-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Provider Grid & Buttons */
+.provider-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.provider-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+    text-align: left;
+    width: 100%;
+}
+
+.provider-btn:hover:not(.disabled-btn) {
+    border-color: #0f172a;
+    background-color: #f8fafc;
+}
+
+.provider-btn.disabled-btn {
+    opacity: 0.45;
+    cursor: not-allowed;
+    background-color: #f8fafc;
+}
+
+.btn-icon {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.btn-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-text strong {
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.btn-text span {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+/* Favorites Section */
+.fav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.text-link-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.text-link-btn:hover {
+    color: var(--text-main);
+}
+
+.fav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.fav-chip {
+    background-color: #f1f5f9;
+    border: 1px solid var(--border-color);
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+.fav-chip:hover {
+    background-color: #e2e8f0;
+}
+
+/* Information Card */
+.info-card h3 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.info-card p {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.info-card code {
+    background-color: #f1f5f9;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--text-main);
+}
+
+/* Toast Notification (Solid) */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0f172a;
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+}
+
+/* Utilities */
+.hidden {
+    display: none !important;
+}
+
+.footer {
+    margin-top: auto;
+    padding: 24px 0;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    background-color: #ffffff;
+}
+
+.footer a {
+    color: var(--text-main);
+    text-decoration: underline;
+}
